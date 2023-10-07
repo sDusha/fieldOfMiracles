@@ -1,16 +1,16 @@
-# This is a sample Python script.
+import random
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from Game import Game
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+game = Game("Курица", "Андрей", "Никита", "Александр")
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+while True:
+    field = game.step(random.randint(1, 1024) % 16)
+    print("На барабане сектор:", field)
+    if field == "П":
+        game.prise(input("Приз или деньги? "))
+    elif field == "x2":
+        game.X2()
+    #сюда свои функции
+    game.change_player()
